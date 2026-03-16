@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Page not found for the Clarkii Outdoors website."
+    />
+    <title>Page Not Found</title>
+    <style>
+      :root {
+        --bg: #f4f2ec;
+        --surface: #ffffff;
+        --surface-soft: #f8f7f2;
+        --text: #1f2b24;
+        --muted: #5e6d63;
+        --line: #d7ddd5;
+        --accent: #244b3a;
+        --accent-soft: #e5eee8;
+        --shadow: 0 18px 40px rgba(31, 43, 36, 0.08);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --max-width: 880px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #f7f5f0 0%, var(--bg) 100%);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page-shell {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .site-header {
+        background: rgba(247, 245, 240, 0.94);
+        border-bottom: 1px solid rgba(36, 75, 58, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .header-inner,
+      .not-found,
+      .site-footer {
+        width: min(calc(100% - 1.5rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 999px;
+        background: linear-gradient(145deg, #315845, #1f3f31);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-subtitle {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 2rem 0 3.5rem;
+      }
+
+      .not-found {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .card,
+      .accent-card {
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .card {
+        background: var(--surface);
+        padding: clamp(2rem, 5vw, 3rem);
+      }
+
+      .accent-card {
+        background: linear-gradient(180deg, #244b3a 0%, #1f3f31 100%);
+        border-color: rgba(36, 75, 58, 0.08);
+        color: #eef4f0;
+        padding: 1.6rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.15;
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 1rem;
+        font-size: clamp(2.3rem, 7vw, 4rem);
+        letter-spacing: -0.04em;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .message {
+        margin-top: 1rem;
+        max-width: 34rem;
+        font-size: 1.05rem;
+        color: var(--muted);
+      }
+
+      .home-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1.5rem;
+        padding: 0.85rem 1.1rem;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .home-link:hover,
+      .home-link:focus-visible {
+        background: #1f3f31;
+        outline: none;
+      }
+
+      .accent-card h2 {
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .accent-card p {
+        margin-top: 0.75rem;
+        color: rgba(238, 244, 240, 0.88);
+      }
+
+      .site-footer {
+        padding: 0 0 2rem;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(36, 75, 58, 0.12);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 720px) {
+        .header-inner,
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .card,
+        .accent-card {
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="index.html" aria-label="Clarkii Outdoors home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text">
+              <span class="brand-title">Clarkii Outdoors</span>
+              <span class="brand-subtitle">A simple fishing log for anglers</span>
+            </span>
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section class="not-found" aria-labelledby="not-found-title">
+          <article class="card">
+            <p class="eyebrow">404 Error</p>
+            <h1 id="not-found-title">Page Not Found</h1>
+            <p class="message">
+              The page you are looking for may have moved, or the URL may be incorrect.
+            </p>
+            <a class="home-link" href="index.html">Return to Homepage</a>
+          </article>
+
+          <aside class="accent-card" aria-label="Helpful note">
+            <h2>Need a starting point?</h2>
+            <p>
+              Head back to the Clarkii Outdoors homepage to find support information,
+              privacy details, and the main site content.
+            </p>
+          </aside>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p>&copy; 2026 Clarkii Outdoors. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

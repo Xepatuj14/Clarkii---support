@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Clarkii Support provides contact information and answers to common questions about the Clarkii Outdoors fishing log app."
+    />
+    <title>Clarkii Support</title>
+    <style>
+      :root {
+        --bg: #f4f2ec;
+        --surface: #ffffff;
+        --surface-soft: #f8f7f2;
+        --text: #1f2b24;
+        --muted: #5e6d63;
+        --line: #d7ddd5;
+        --accent: #244b3a;
+        --accent-soft: #e5eee8;
+        --shadow: 0 18px 40px rgba(31, 43, 36, 0.08);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --max-width: 880px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #f7f5f0 0%, var(--bg) 100%);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page-shell {
+        min-height: 100vh;
+      }
+
+      .site-header {
+        background: rgba(247, 245, 240, 0.94);
+        border-bottom: 1px solid rgba(36, 75, 58, 0.08);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .header-inner,
+      .hero,
+      .content-stack,
+      .site-footer {
+        width: min(calc(100% - 1.5rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 999px;
+        background: linear-gradient(145deg, #315845, #1f3f31);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-subtitle {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .site-nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .site-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 0.9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible,
+      .site-nav a[aria-current="page"] {
+        background: var(--accent-soft);
+        color: var(--accent);
+        outline: none;
+      }
+
+      main {
+        padding: 2rem 0 3.5rem;
+      }
+
+      .hero {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .content-card,
+      .faq-item {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: clamp(2rem, 5vw, 3rem);
+      }
+
+      .hero-panel,
+      .content-card,
+      .faq-item {
+        padding: 1.6rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.15;
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 1rem;
+        font-size: clamp(2.3rem, 7vw, 4.2rem);
+        letter-spacing: -0.04em;
+      }
+
+      .subtitle {
+        margin: 1rem 0 0;
+        max-width: 34rem;
+        font-size: 1.08rem;
+        color: var(--muted);
+      }
+
+      .hero-panel {
+        background: linear-gradient(180deg, #244b3a 0%, #1f3f31 100%);
+        border-color: rgba(36, 75, 58, 0.08);
+        color: #eef4f0;
+      }
+
+      .panel-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .panel-copy,
+      .update-note {
+        margin: 0.75rem 0 0;
+        color: rgba(238, 244, 240, 0.88);
+      }
+
+      .support-email {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.85rem 1rem;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .support-email:hover,
+      .support-email:focus-visible,
+      .contact-pill:hover,
+      .contact-pill:focus-visible,
+      .footer-inner a:hover,
+      .footer-inner a:focus-visible,
+      .faq-item a:hover,
+      .faq-item a:focus-visible {
+        text-decoration: underline;
+        outline: none;
+      }
+
+      .content-stack {
+        display: grid;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .content-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .content-card p,
+      .faq-item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .faq-item {
+        background: var(--surface-soft);
+      }
+
+      .faq-item h3 {
+        font-size: 1rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .faq-item a,
+      .contact-pill,
+      .footer-inner a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .contact-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .contact-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 1.05rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        white-space: nowrap;
+      }
+
+      .site-footer {
+        padding: 0 0 2rem;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(36, 75, 58, 0.12);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 720px) {
+        .header-inner,
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .faq-grid,
+        .contact-card {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .site-nav ul {
+          justify-content: flex-start;
+        }
+
+        .hero-copy,
+        .hero-panel,
+        .content-card,
+        .faq-item {
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="index.html" aria-label="Clarkii Outdoors home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text">
+              <span class="brand-title">Clarkii Outdoors</span>
+              <span class="brand-subtitle">A simple fishing log for anglers</span>
+            </span>
+          </a>
+          <nav class="site-nav" aria-label="Primary">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="support.html" aria-current="page">Support</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="support-title">
+          <article class="hero-copy">
+            <p class="eyebrow">Help and support</p>
+            <h1 id="support-title">Clarkii Support</h1>
+            <p class="subtitle">
+              If you need help using Clarkii Outdoors, have a question about the app, or want to
+              report an issue, you can contact support by email.
+            </p>
+          </article>
+
+          <aside class="hero-panel" aria-label="Support contact">
+            <h2 class="panel-title">Contact support</h2>
+            <p class="panel-copy">
+              For the fastest help, include your device model, iOS version, and a short
+              description of the issue you are seeing.
+            </p>
+            <a class="support-email" href="mailto:support@clarkiioutdoors.com"
+              >support@clarkiioutdoors.com</a
+            >
+            <p class="update-note">
+              Before contacting support, please make sure the app is updated to the latest
+              available version.
+            </p>
+          </aside>
+        </section>
+
+        <div class="content-stack">
+          <section class="content-card" aria-labelledby="faq-title">
+            <h2 id="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+              <article class="faq-item">
+                <h3>How do I get help?</h3>
+                <p>
+                  Send a message to
+                  <a href="mailto:support@clarkiioutdoors.com">support@clarkiioutdoors.com</a>
+                  with a short description of the problem and any relevant screenshots or details.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h3>Does Clarkii require an account?</h3>
+                <p>
+                  No separate account is required to use Clarkii as an offline-first fishing log.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h3>Is my data stored online?</h3>
+                <p>
+                  Clarkii is designed to keep your log local first. Your fishing records are not
+                  dependent on a required online account to use the app.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h3>How do I back up my data?</h3>
+                <p>
+                  Use the app&rsquo;s backup or export options if they are available in your
+                  version, and consider including your iPhone in your normal device backup
+                  routine.
+                </p>
+              </article>
+
+              <article class="faq-item">
+                <h3>What permissions might the app request?</h3>
+                <p>
+                  Depending on how you use Clarkii, the app may request access to location,
+                  photos, photo saving, or motion data for features you choose to use.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="content-card" aria-labelledby="contact-title">
+            <div class="contact-card">
+              <div>
+                <h2 id="contact-title">Still need help?</h2>
+                <p>
+                  Support is available by email for app questions, troubleshooting, and general
+                  assistance.
+                </p>
+              </div>
+              <a class="contact-pill" href="mailto:support@clarkiioutdoors.com"
+                >support@clarkiioutdoors.com</a
+              >
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p>
+            Support:
+            <a href="mailto:support@clarkiioutdoors.com">support@clarkiioutdoors.com</a>
+          </p>
+          <p>&copy; 2026 Clarkii Outdoors. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Clarkii Outdoors is a private, offline-first fishing log for anglers who want to keep trips, catches, spots, gear, notes, and photos organized."
+    />
+    <title>Clarkii Outdoors</title>
+    <style>
+      :root {
+        --bg: #f4f2ec;
+        --surface: #ffffff;
+        --surface-soft: #f8f7f2;
+        --text: #1f2b24;
+        --muted: #5e6d63;
+        --line: #d7ddd5;
+        --accent: #244b3a;
+        --accent-soft: #e5eee8;
+        --shadow: 0 18px 40px rgba(31, 43, 36, 0.08);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --max-width: 880px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+        color: var(--text);
+        background: linear-gradient(180deg, #f7f5f0 0%, var(--bg) 100%);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page-shell {
+        min-height: 100vh;
+      }
+
+      .site-header {
+        background: rgba(247, 245, 240, 0.94);
+        border-bottom: 1px solid rgba(36, 75, 58, 0.08);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .header-inner,
+      .hero,
+      .content-grid,
+      .site-footer {
+        width: min(calc(100% - 1.5rem), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 999px;
+        background: linear-gradient(145deg, #315845, #1f3f31);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .brand-subtitle {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .site-nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .site-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 0.9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible {
+        background: var(--accent-soft);
+        color: var(--accent);
+        outline: none;
+      }
+
+      main {
+        padding: 2rem 0 3.5rem;
+      }
+
+      .hero {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .hero-copy,
+      .hero-panel,
+      .content-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: clamp(2rem, 5vw, 3rem);
+      }
+
+      .hero-panel,
+      .content-card {
+        padding: 1.6rem;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.15;
+        margin: 0;
+      }
+
+      h1 {
+        margin-top: 1rem;
+        font-size: clamp(2.3rem, 7vw, 4.2rem);
+        letter-spacing: -0.04em;
+      }
+
+      .subtitle {
+        margin: 1rem 0 0;
+        max-width: 34rem;
+        font-size: 1.08rem;
+        color: var(--muted);
+      }
+
+      .hero-quote {
+        margin: 1.35rem 0 0;
+        color: var(--accent);
+        font-size: 1.12rem;
+        font-weight: 700;
+      }
+
+      .hero-panel {
+        background: linear-gradient(180deg, #244b3a 0%, #1f3f31 100%);
+        border-color: rgba(36, 75, 58, 0.08);
+        color: #eef4f0;
+      }
+
+      .panel-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+
+      .panel-copy {
+        margin: 0.75rem 0 0;
+        color: rgba(238, 244, 240, 0.88);
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .content-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .content-card p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .tracking-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+        list-style: none;
+        margin: 1.15rem 0 0;
+        padding: 0;
+      }
+
+      .tracking-list li {
+        padding: 0.9rem 1rem;
+        border-radius: var(--radius-md);
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        font-weight: 600;
+      }
+
+      .support-list {
+        list-style: none;
+        margin: 1rem 0 0;
+        padding: 0;
+      }
+
+      .support-list li + li {
+        margin-top: 0.7rem;
+      }
+
+      .support-list a,
+      .footer-inner a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .support-list a:hover,
+      .support-list a:focus-visible,
+      .footer-inner a:hover,
+      .footer-inner a:focus-visible {
+        text-decoration: underline;
+        outline: none;
+      }
+
+      .privacy-note {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        background: var(--surface-soft);
+        border: 1px solid var(--line);
+        color: var(--text);
+      }
+
+      .site-footer {
+        padding: 0 0 2rem;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(36, 75, 58, 0.12);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 720px) {
+        .header-inner,
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .content-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .tracking-list {
+          grid-template-columns: 1fr;
+        }
+
+        .site-nav ul {
+          justify-content: flex-start;
+        }
+
+        .hero-copy,
+        .hero-panel,
+        .content-card {
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="#home" aria-label="Clarkii Outdoors home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text">
+              <span class="brand-title">Clarkii Outdoors</span>
+              <span class="brand-subtitle">A simple fishing log for anglers</span>
+            </span>
+          </a>
+          <nav class="site-nav" aria-label="Primary">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#support">Support</a></li>
+              <li><a href="#privacy-policy">Privacy Policy</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="home" aria-labelledby="hero-title">
+          <article class="hero-copy">
+            <p class="eyebrow">Private and offline-first</p>
+            <h1 id="hero-title">Clarkii Outdoors</h1>
+            <p class="subtitle">
+              Clarkii Outdoors is a clean, private fishing log built to help anglers keep track
+              of time on the water without adding clutter to the experience.
+            </p>
+            <p class="hero-quote">Clarkii remembers what you forget.</p>
+          </article>
+
+          <aside class="hero-panel" aria-label="App summary">
+            <h2 class="panel-title">Made for real fishing days</h2>
+            <p class="panel-copy">
+              Keep the details that matter close at hand, from trips and catches to spots, gear,
+              notes, and photos, in a layout that stays clear and easy to revisit later.
+            </p>
+          </aside>
+        </section>
+
+        <div class="content-grid">
+          <section class="content-card" aria-labelledby="track-title">
+            <h2 id="track-title">What Clarkii Helps Track</h2>
+            <p>
+              Built for anglers who want a simple record of where they fished, what they used,
+              and what happened.
+            </p>
+            <ul class="tracking-list">
+              <li>Trips</li>
+              <li>Fishing spots</li>
+              <li>Catches</li>
+              <li>Gear</li>
+              <li>Notes</li>
+              <li>Photos</li>
+            </ul>
+          </section>
+
+          <section class="content-card" aria-labelledby="name-title">
+            <h2 id="name-title">About the Name</h2>
+            <p>
+              Clarkii comes from <em>Oncorhynchus clarkii</em>, the cutthroat trout. The name
+              reflects the app&rsquo;s roots in thoughtful, outdoors-focused fishing and a clean,
+              dependable approach to keeping your log.
+            </p>
+          </section>
+
+          <section class="content-card" id="support" aria-labelledby="support-title">
+            <h2 id="support-title">Support</h2>
+            <p>
+              If you need help with the app, account questions, or general feedback, reach out
+              and we&rsquo;ll point you in the right direction.
+            </p>
+            <ul class="support-list">
+              <li>Email: <a href="mailto:support@clarkiioutdoors.com">support@clarkiioutdoors.com</a></li>
+              <li>Response times may vary during weekends and fishing season.</li>
+            </ul>
+          </section>
+
+          <section class="content-card" id="privacy-policy" aria-labelledby="privacy-title">
+            <h2 id="privacy-title">Privacy Policy</h2>
+            <p>
+              Clarkii Outdoors is designed to keep your fishing log personal, practical, and easy
+              to manage. Privacy details, data handling information, and future policy updates can
+              be published here as the website grows.
+            </p>
+            <p class="privacy-note">
+              This page is a simple website entry point for the app and can be expanded with a
+              full privacy policy whenever you are ready to publish it.
+            </p>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p>&copy; 2026 Clarkii Outdoors. All rights reserved.</p>
+          <p>
+            Contact:
+            <a href="mailto:support@clarkiioutdoors.com">support@clarkiioutdoors.com</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
